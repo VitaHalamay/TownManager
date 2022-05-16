@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/TownManager/.vs/TownManager/v16
+/TownManager/bin/Debug/net5.0
+/TownManager/obj
