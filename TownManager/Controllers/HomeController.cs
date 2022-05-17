@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TownManager.Models;
+using TownManager.Models.Enums;
+using TownManager.Services;
 
 namespace TownManager.Controllers
 {
@@ -20,12 +22,20 @@ namespace TownManager.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var gameSingleton = GameSingleton.GetInstance();
+           
+            return View(gameSingleton.Model);
         }
 
-        public IActionResult Privacy()
+        public IActionResult BuildView()
         {
             return View();
+        }
+        public IActionResult Build(BuildingType id)
+        {
+            var gameSingleton = GameSingleton.GetInstance();
+            gameSingleton.Model.Buildings.Add(new Company { Type = id});
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

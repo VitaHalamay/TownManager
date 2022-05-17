@@ -1,4 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model GameModel
+<div class="row">
 
+    @foreach(var building in Model.Buildings)
+    {
+        <div class="col-lg-1 pb-4">
+            <img src="~/Images/@(building.Type).png">
+        </div>
+    }
+</div>

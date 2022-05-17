@@ -6,6 +6,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\icons8-apartment-64.png" />
+    <None Include="wwwroot\Images\icons8-arch-64.png" />
+    <None Include="wwwroot\Images\icons8-bank-64.png" />
+    <None Include="wwwroot\Images\icons8-booth-64.png" />
+    <None Include="wwwroot\Images\icons8-castle-64.png" />
+    <None Include="wwwroot\Images\icons8-coffee-shop-64.png" />
+    <None Include="wwwroot\Images\Company.png" />
+    <None Include="wwwroot\Images\icons8-company-64 %282%29.png" />
+    <None Include="wwwroot\Images\icons8-company-64 %283%29.png" />
+    <None Include="wwwroot\Images\icons8-company-64 %284%29.png" />
+    <None Include="wwwroot\Images\icons8-company-64.png" />
+    <None Include="wwwroot\Images\Factory.png" />
+    <None Include="wwwroot\Images\FireStation.png" />
+    <None Include="wwwroot\Images\icons8-hospital-64.png" />
+    <None Include="wwwroot\Images\Hotel.png" />
+    <None Include="wwwroot\Images\icons8-house-64 %281%29.png" />
+    <None Include="wwwroot\Images\icons8-house-64 %282%29.png" />
+    <None Include="wwwroot\Images\icons8-house-64 %283%29.png" />
+    <None Include="wwwroot\Images\House.png" />
+    <None Include="wwwroot\Images\icons8-house-64.png" />
+    <None Include="wwwroot\Images\Museum.png" />
+    <None Include="wwwroot\Images\PoliceStation.png" />
+    <None Include="wwwroot\Images\icons8-post-office-64.png" />
+    <None Include="wwwroot\Images\icons8-stadium-64.png" />
+    <None Include="wwwroot\Images\icons8-store-64 %281%29.png" />
+    <None Include="wwwroot\Images\Store.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.10" />
   </ItemGroup>
 

@@ -1,0 +1,15 @@
+﻿@using TownManager.Models.Enums;
+@{
+    ViewData["Title"] = "Build";
+}
+
+<div class="row">
+
+    @foreach (var building in Enum.GetValues(typeof(BuildingType)))
+    {
+        <div class="col-lg-1 pb-4">
+            <a href="/Home/Build/@(building)"><img src="~/Images/@(building).png"></a>
+        </div>
+    }
+
+</div>
