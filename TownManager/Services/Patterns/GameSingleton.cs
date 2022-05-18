@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TownManager.Models;
 
-namespace TownManager.Services
+namespace TownManager.Services.Patterns
 {
     public class GameSingleton
     {

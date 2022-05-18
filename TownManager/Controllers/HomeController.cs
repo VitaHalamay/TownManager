@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TownManager.Models;
 using TownManager.Models.Enums;
 using TownManager.Services;
+using TownManager.Services.Patterns;
 
 namespace TownManager.Controllers
 {
@@ -23,7 +24,7 @@ namespace TownManager.Controllers
         public IActionResult Index()
         {
             var gameSingleton = GameSingleton.GetInstance();
-           
+
             return View(gameSingleton.Model);
         }
 
@@ -33,11 +34,22 @@ namespace TownManager.Controllers
         }
         public IActionResult Build(BuildingType id)
         {
-            var gameSingleton = GameSingleton.GetInstance();
-            gameSingleton.Model.Buildings.Add(new Company { Type = id});
+            var factory = FactoryMethod.GetBuildingFactory(id);
+            factory.Build();
+
             return RedirectToAction("Index");
         }
+        public IActionResult Destroy(int id)
+        {
+            var gameSingleton = GameSingleton.GetInstance();
+            var building = gameSingleton.Model.Buildings[id];
 
+            var factory = FactoryMethod.GetBuildingFactory(building.Type);
+
+            factory.Destroy(id);
+
+            return RedirectToAction("Index");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -3,11 +3,42 @@
 }
 @model GameModel
 <div class="row">
+    <div class="col-lg-2">
+        <p>Citizens: <span class="badge badge-pill badge-primary">@Model.CitizensCount</span></p>
+    </div>
+    <div class="col-lg-2">
+        <p>Workplaces: <span class="badge badge-pill badge-primary">@Model.WorkplacesCount</span></p>
+    </div>
+    <div class="col-lg-2">
+        <p>Culture Level: <span class="badge badge-pill badge-primary">@Model.CultureLevel</span></p>
+    </div>
+    <div class="col-lg-2">
+        <p>Prestige Level: <span class="badge badge-pill badge-primary">@Model.PrestigeLevel</span></p>
+    </div>
+    <div class="col-lg-2">
+        <p>Provision Level: <span class="badge badge-pill badge-primary">@Model.ProvisionLevel</span></p>
+    </div>
+    <div class="col-lg-2">
+        <p>Security Level: <span class="badge badge-pill badge-primary">@Model.SecurityLevel</span></p>
+    </div>
 
-    @foreach(var building in Model.Buildings)
+</div>
+<div class="row">
+
+    @for (var index = 0; index < Model.Buildings.Count; index++)
     {
         <div class="col-lg-1 pb-4">
-            <img src="~/Images/@(building.Type).png">
+
+            <div class="dropdown">
+                <a title="@(Model.Buildings[index].Type)" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                    <img src="~/Images/@(Model.Buildings[index].Type).png">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/Home/Destroy/@index">Destroy</a>
+                    <a class="dropdown-item" href="#">Upgrade</a>
+                </div>
+            </div>
+
         </div>
     }
 </div>
