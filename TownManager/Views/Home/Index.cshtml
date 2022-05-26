@@ -3,14 +3,14 @@
     var flyweight = new TownManager.Services.Patterns.Flyweight();
 }
 @model GameModel
-
+@using TownManager.Models.Enums
 <p>Day:  <span class="badge badge-pill badge-primary">@Model.CurrentDay</span></p>
 <div class="row">
 
     @foreach (var statistics in Model.Statistics)
     {
         <div class="col-lg-3">
-            <p>@statistics.Key : <span class="badge badge-pill badge-primary">@statistics.Value</span></p>
+            <p>@statistics.Key.GetName() : <span class="badge badge-pill badge-primary">@statistics.Value</span></p>
         </div>
     }
 

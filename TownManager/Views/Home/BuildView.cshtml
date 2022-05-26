@@ -3,16 +3,17 @@
     var flyweight = new TownManager.Services.Patterns.Flyweight();
 
 }
+@using TownManager.Models.Enums
 
 <div class="row">
 
-    @foreach (var building in Enum.GetValues(typeof(TownManager.Models.Enums.BuildingType)))
+    @foreach (BuildingType building in Enum.GetValues(typeof(BuildingType)))
     {
         <div class="col-lg-2 pb-4">
             <a href="/Home/Build/@(building)" title="@building">
-                <img src="data:image/jpeg;base64,@flyweight.GetImage((TownManager.Models.Enums.BuildingType)building)">
+                <img src="data:image/jpeg;base64,@flyweight.GetImage(building)">
             </a>
-            <p>@building</p>
+            <p>@((building).GetName())</p>
         </div>
     }
 
