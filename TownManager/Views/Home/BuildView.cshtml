@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Build";
+    var flyweight = new TownManager.Services.Patterns.Flyweight();
+
 }
 
 <div class="row">
@@ -8,7 +10,7 @@
     {
         <div class="col-lg-2 pb-4">
             <a href="/Home/Build/@(building)" title="@building">
-                <img src="~/Images/@(building).png">
+                <img src="data:image/jpeg;base64,@flyweight.GetImage((TownManager.Models.Enums.BuildingType)building)">
             </a>
             <p>@building</p>
         </div>
