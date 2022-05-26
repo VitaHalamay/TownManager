@@ -20,6 +20,7 @@ namespace TownManager.Models
             {
                 Statistics.Add((StatisticsType)type, 0);
             }
+            Statistics[StatisticsType.MoneyCount] = 500;
         }
     }
 }

@@ -9,6 +9,7 @@ using TownManager.Models;
 using TownManager.Models.Enums;
 using TownManager.Services;
 using TownManager.Services.Patterns;
+using TownManager.Services.Patterns.Decorator;
 
 namespace TownManager.Controllers
 {
@@ -35,7 +36,8 @@ namespace TownManager.Controllers
         public IActionResult Build(BuildingType id)
         {
             var factory = FactoryMethod.GetBuildingFactory(id);
-            factory.Build();
+            var decorator = new MoneyDecorator(factory);
+            decorator.Build();
 
             return RedirectToAction("Index");
         }
@@ -45,8 +47,8 @@ namespace TownManager.Controllers
             var building = gameSingleton.Model.Buildings[id];
 
             var factory = FactoryMethod.GetBuildingFactory(building.Type);
-
-            factory.Destroy(id);
+            var decorator = new MoneyDecorator(factory);
+            decorator.Destroy(id);
 
             return RedirectToAction("Index");
         }
