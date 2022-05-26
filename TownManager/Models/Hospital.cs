@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TownManager.Models
 {
-    public class Factory : AbstarctBuilding
+    public class Hospital : AbstarctBuilding
     {
     }
 }

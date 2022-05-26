@@ -2,25 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 @model GameModel
+
+<p>Day:  <span class="badge badge-pill badge-primary">@Model.CurrentDay</span></p>
 <div class="row">
-    <div class="col-lg-2">
-        <p>Citizens: <span class="badge badge-pill badge-primary">@Model.CitizensCount</span></p>
-    </div>
-    <div class="col-lg-2">
-        <p>Workplaces: <span class="badge badge-pill badge-primary">@Model.WorkplacesCount</span></p>
-    </div>
-    <div class="col-lg-2">
-        <p>Culture Level: <span class="badge badge-pill badge-primary">@Model.CultureLevel</span></p>
-    </div>
-    <div class="col-lg-2">
-        <p>Prestige Level: <span class="badge badge-pill badge-primary">@Model.PrestigeLevel</span></p>
-    </div>
-    <div class="col-lg-2">
-        <p>Provision Level: <span class="badge badge-pill badge-primary">@Model.ProvisionLevel</span></p>
-    </div>
-    <div class="col-lg-2">
-        <p>Security Level: <span class="badge badge-pill badge-primary">@Model.SecurityLevel</span></p>
-    </div>
+
+    @foreach (var statistics in Model.Statistics)
+    {
+        <div class="col-lg-3">
+            <p>@statistics.Key : <span class="badge badge-pill badge-primary">@statistics.Value</span></p>
+        </div>
+    }
 
 </div>
 <div class="row">

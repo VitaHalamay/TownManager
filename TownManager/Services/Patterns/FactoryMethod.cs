@@ -12,8 +12,12 @@ namespace TownManager.Services.Patterns
         {
             return buildingType switch
             {
-                BuildingType.Company => new CompanyFactory(),
-                BuildingType.Factory => new FactoryFactory(),
+                BuildingType.ElectronicsCompany => new ElectronicsCompanyFactory(),
+                BuildingType.Hospital => new HospitalFactory(),
+                BuildingType.PharmaceuticalCompany => new PharmaceuticalCompanyFactory(),
+                BuildingType.ProvisionCompany => new ProvisionCompanyFactory(),
+                BuildingType.TextileCompany => new TextileCompanyFactory(),
+                BuildingType.MetallurgyCompany => new MetallurgyCompanyFactory(),
                 BuildingType.FireStation => new FireStationFactory(),
                 BuildingType.Hotel => new HotelFactory(),
                 BuildingType.House => new HouseFactory(),

@@ -2,14 +2,18 @@
 {
     public enum BuildingType
     {
-        Company,
-        Factory,
+        ElectronicsCompany,
         FireStation,
+        Hospital,
         Hotel,
         House,
+        MetallurgyCompany,
         Museum,
+        PharmaceuticalCompany,
         PoliceStation,
-        Store
+        ProvisionCompany,
+        Store,
+        TextileCompany
     }
 
 }

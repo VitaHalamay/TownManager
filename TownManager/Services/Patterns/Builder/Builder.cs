@@ -13,5 +13,6 @@ namespace TownManager.Services.Patterns
         public abstract void UpdateProvisionLevel();
         public abstract void UpdateSecurityLevel();
         public abstract void UpdatePrestigeLevel();
+        public abstract void UpdateHealthLevel();
     }
 }

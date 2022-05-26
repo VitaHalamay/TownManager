@@ -8,12 +8,12 @@ using TownManager.Services.Patterns;
 
 namespace TownManager.Services
 {
-    public class CompanyFactory : IBuildingFactory
+    public class ElectronicsCompanyFactory : IBuildingFactory
     {
         public void Build()
         {
             var gameSingleton = GameSingleton.GetInstance();
-            gameSingleton.Model.Buildings.Add(new Company { Type = BuildingType.Company });
+            gameSingleton.Model.Buildings.Add(new ElectronicsCompany { Type = BuildingType.ElectronicsCompany });
 
             var builder = new BuildBuilder();
             builder.UpdatePrestigeLevel();

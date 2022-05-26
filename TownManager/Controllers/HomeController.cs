@@ -50,6 +50,15 @@ namespace TownManager.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult NextDay()
+        {
+            var dayFacade = new DayFacade();
+            dayFacade.RecalculateStatistics();
+
+            return RedirectToAction("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

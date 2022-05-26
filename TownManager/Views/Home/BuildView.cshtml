@@ -6,10 +6,11 @@
 
     @foreach (var building in Enum.GetValues(typeof(TownManager.Models.Enums.BuildingType)))
     {
-        <div class="col-lg-1 pb-4">
+        <div class="col-lg-2 pb-4">
             <a href="/Home/Build/@(building)" title="@building">
                 <img src="~/Images/@(building).png">
             </a>
+            <p>@building</p>
         </div>
     }
 

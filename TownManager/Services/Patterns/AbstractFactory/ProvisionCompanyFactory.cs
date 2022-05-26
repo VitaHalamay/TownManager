@@ -8,15 +8,15 @@ using TownManager.Services.Patterns;
 
 namespace TownManager.Services
 {
-    public class FactoryFactory : IBuildingFactory
+    public class ProvisionCompanyFactory : IBuildingFactory
     {
         public void Build()
         {
             var gameSingleton = GameSingleton.GetInstance();
-            gameSingleton.Model.Buildings.Add(new Factory { Type = BuildingType.Factory });
+            gameSingleton.Model.Buildings.Add(new ProvisionCompany { Type = BuildingType.ProvisionCompany });
 
             var builder = new BuildBuilder();
-            builder.UpdateProvisionLevel();
+            builder.UpdatePrestigeLevel();
             builder.UpdateWorkplacesCount();
         }
 
@@ -26,7 +26,7 @@ namespace TownManager.Services
             gameSingleton.Model.Buildings.RemoveAt(index);
 
             var builder = new DestroyBuilder();
-            builder.UpdateProvisionLevel();
+            builder.UpdatePrestigeLevel();
             builder.UpdateWorkplacesCount();
         }
     }
