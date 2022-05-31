@@ -7,5 +7,9 @@ namespace TownManager.Models
 {
     public class House : AbstarctBuilding
     {
+        public House()
+        {
+            Active = true;
+        }
     }
 }

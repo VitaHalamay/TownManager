@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TownManager.Models;
+using TownManager.Services.Patterns.Observer;
 
 namespace TownManager.Services.Patterns
 {
@@ -14,9 +15,13 @@ namespace TownManager.Services.Patterns
 
         public GameModel Model { get; set; }
 
+        public Publisher Publisher { get; set; }
+
         private GameSingleton()
         {
             Model = new GameModel();
+            Publisher = new Publisher();
+            
         }
 
         public static GameSingleton GetInstance()
