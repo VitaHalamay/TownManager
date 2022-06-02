@@ -9,6 +9,7 @@ using TownManager.Models;
 using TownManager.Models.Enums;
 using TownManager.Services;
 using TownManager.Services.Patterns;
+using TownManager.Services.Patterns.ChainOfResponsibility;
 using TownManager.Services.Patterns.Decorator;
 
 namespace TownManager.Controllers
@@ -55,10 +56,11 @@ namespace TownManager.Controllers
 
         public IActionResult Upgrade(int id)
         {
-            var gameSingleton = GameSingleton.GetInstance();
-            var building = gameSingleton.Model.Buildings[id];
+            var upgradeHandler = new UpgradeHandler(null);
+            var moneyHandler = new MoneyHandler(upgradeHandler);
+            var validationHandler = new ValidationHandler(moneyHandler);
 
-            building.Upgraded = true;
+            validationHandler.Handle(id);
 
             return RedirectToAction("Index");
         }
