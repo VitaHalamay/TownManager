@@ -2,39 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TownManager.Services.Strategy;
 
 namespace TownManager.Services.Patterns
 {
     public class DayFacade
     {
         GameSingleton gameSingleton;
-        HealthDayService healthDayService;
-        ClothesDayService clothesDayService;
-        SparePartsDayService sparePartsDayService;
+        IHealthDayStrategy healthDayStrategy;
+        IClothesDayStrategy clothesDayStrategy;
+        ISparePartsDayStrategy sparePartsDayStrategy;
 
         public DayFacade()
         {
             gameSingleton = GameSingleton.GetInstance();
-            healthDayService = new HealthDayService();
-            clothesDayService = new ClothesDayService();
-            sparePartsDayService = new SparePartsDayService();
-
+            healthDayStrategy = FactoryMethod.GetHealthDayStrategy();
+            clothesDayStrategy = FactoryMethod.GetClothesDayStrategy();
+            sparePartsDayStrategy = FactoryMethod.GetSparePartsDayStrategy();
         }
 
         public void RecalculateStatistics()
         {
-
             gameSingleton.Model.CurrentDay++;
 
-            healthDayService.RecalculateMedcines();
-            healthDayService.RecalculateHealth();
+            healthDayStrategy.RecalculateMedcines();
+            healthDayStrategy.RecalculateHealth();
 
-            clothesDayService.RecalculateClothesProduction();
-            clothesDayService.RecalculateClothesSales();
+            clothesDayStrategy.RecalculateClothesProduction();
+            clothesDayStrategy.RecalculateClothesSales();
 
-            sparePartsDayService.RecalculateSparePartsProduction();
-            sparePartsDayService.RecalculateDevicesProduction();
-            sparePartsDayService.RecalculateDevicesSales();
+            sparePartsDayStrategy.RecalculateSparePartsProduction();
+            sparePartsDayStrategy.RecalculateDevicesProduction();
+            sparePartsDayStrategy.RecalculateDevicesSales();
         }
     }
 }

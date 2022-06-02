@@ -27,7 +27,10 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="/Home/Destroy/@index">Destroy</a>
-                    <a class="dropdown-item" href="#">Upgrade</a>
+                    @if (!Model.Buildings[index].Upgraded)
+                    {
+                        <a class="dropdown-item" href="/Home/Upgrade/@index">Upgrade</a>
+                    }
                 </div>
             </div>
 

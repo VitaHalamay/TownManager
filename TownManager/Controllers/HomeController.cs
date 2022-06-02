@@ -36,7 +36,7 @@ namespace TownManager.Controllers
         public IActionResult Build(BuildingType id)
         {
             var factory = FactoryMethod.GetBuildingFactory(id);
-            var decorator = new MoneyDecorator(factory);
+            var decorator = new CommonDecorator(factory);
             decorator.Build();
 
             return RedirectToAction("Index");
@@ -47,8 +47,18 @@ namespace TownManager.Controllers
             var building = gameSingleton.Model.Buildings[id];
 
             var factory = FactoryMethod.GetBuildingFactory(building.Type);
-            var decorator = new MoneyDecorator(factory);
+            var decorator = new CommonDecorator(factory);
             decorator.Destroy(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Upgrade(int id)
+        {
+            var gameSingleton = GameSingleton.GetInstance();
+            var building = gameSingleton.Model.Buildings[id];
+
+            building.Upgraded = true;
 
             return RedirectToAction("Index");
         }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using TownManager.Models.Enums;
 using TownManager.Services.Patterns;
 
-namespace TownManager.Services
+namespace TownManager.Services.Strategy
 {
-    public class SparePartsDayService
+    public class SparePartsDayStrategy : ISparePartsDayStrategy
     {
         public void RecalculateSparePartsProduction()
         {

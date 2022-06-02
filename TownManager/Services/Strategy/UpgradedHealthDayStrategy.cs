@@ -5,15 +5,17 @@ using System.Threading.Tasks;
 using TownManager.Models.Enums;
 using TownManager.Services.Patterns;
 
-namespace TownManager.Services
+namespace TownManager.Services.Strategy
 {
-    public class HealthDayService
+    public class UpgradedHealthDayStrategy : IHealthDayStrategy
     {
         public void RecalculateMedcines()
         {
             var gameSingleton = GameSingleton.GetInstance();
             var count = gameSingleton.Model.Buildings.Where(w => w.Type == BuildingType.PharmaceuticalCompany).Count();
-            gameSingleton.Model.Statistics[StatisticsType.MedicinesCount] += count * 30;
+            gameSingleton.Model.Statistics[StatisticsType.MedicinesCount] += count * 50;
+            gameSingleton.Model.Statistics[StatisticsType.ClothesCount] -= count * 1;
+            gameSingleton.Model.Statistics[StatisticsType.DevicesCount] -= count * 1;
         }
         public void RecalculateHealth()
         {
@@ -26,7 +28,5 @@ namespace TownManager.Services
                 gameSingleton.Model.Statistics[StatisticsType.HealthLevel]--;
             }
         }
-
-
     }
 }

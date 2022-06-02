@@ -6,9 +6,9 @@ using TownManager.Models.Enums;
 
 namespace TownManager.Services.Patterns.Decorator
 {
-    public class MoneyDecorator : Decorator
+    public class CommonDecorator : Decorator
     {
-        public MoneyDecorator(IBuildingFactory decoratedBuildingFactory) : base(decoratedBuildingFactory)
+        public CommonDecorator(IBuildingFactory decoratedBuildingFactory) : base(decoratedBuildingFactory)
         {
         }
 

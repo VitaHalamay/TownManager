@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 using TownManager.Models.Enums;
 using TownManager.Services.Patterns;
 
-namespace TownManager.Services
+namespace TownManager.Services.Strategy
 {
-    public class ClothesDayService
+    public class UpgradedClothesDayStrategy : IClothesDayStrategy
     {
         public void RecalculateClothesProduction()
         {
             var gameSingleton = GameSingleton.GetInstance();
 
             var companyCount = gameSingleton.Model.Buildings.Where(w => w.Type == BuildingType.TextileCompany).Count();
-            gameSingleton.Model.Statistics[StatisticsType.ClothesCount] += companyCount * 15;
-
+            gameSingleton.Model.Statistics[StatisticsType.ClothesCount] += companyCount * 20;
+            gameSingleton.Model.Statistics[StatisticsType.DevicesCount] -= companyCount * 1;
         }
 
         public void RecalculateClothesSales()
@@ -24,7 +24,7 @@ namespace TownManager.Services
 
             var count = gameSingleton.Model.Buildings.Where(w => w.Type == BuildingType.Store).Count();
 
-            var clothesCount = count * 5;
+            var clothesCount = count * 7;
             gameSingleton.Model.Statistics[StatisticsType.ClothesCount] -= clothesCount;
             gameSingleton.Model.Statistics[StatisticsType.MoneyCount] += clothesCount * 7;
 

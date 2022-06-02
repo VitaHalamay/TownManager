@@ -7,6 +7,8 @@ namespace TownManager.Models
     {
         public BuildingType Type { get; set; }
 
+        public bool Upgraded { get; set; }
+
         public bool Active { get; set; }
 
         public void Update()
